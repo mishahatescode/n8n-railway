@@ -2,11 +2,12 @@ FROM n8nio/n8n:latest
 
 USER root
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg \
     python3 \
-    py3-pip \
-    bash
+    python3-pip \
+    bash \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --break-system-packages pydub
 
