@@ -9,7 +9,7 @@ RUN apk add --no-cache \
     bash \
     curl
 
-RUN pip3 install pydub
+RUN pip3 install --break-system-packages pydub
 
 RUN npm install -g n8n
 
