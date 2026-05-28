@@ -1,15 +1,15 @@
-FROM n8nio/n8n:latest
+FROM n8nio/n8n:latest-debian
 
 USER root
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg \
     python3 \
-    py3-pip \
-    bash \
-    curl
+    python3-pip \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install pydub
+RUN pip3 install --break-system-packages pydub
 
 RUN mkdir -p /opt/assets /opt/scripts /tmp/episodes
 
