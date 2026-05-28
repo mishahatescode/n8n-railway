@@ -5,7 +5,7 @@ USER root
 RUN apt-get add --no-cache \
     ffmpeg \
     python3 \
-    py3-pip \
+    python3-pip \
     bash
 
 RUN pip3 install --break-system-packages pydub
